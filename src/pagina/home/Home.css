@@ -1,11 +1,12 @@
 
 .corlogo{
-    color:rgb(197, 130, 6);
+    color: rgb(0, 0, 0);
     width: 30px;
     height: 30px;
 }
 .caixa{
-    background-color: #3F51B5;
+    background: rgb(167,106,8);
+    background: linear-gradient(90deg, rgba(167,106,8,1) 29%, rgba(0,0,0,1) 83%);
 }
 .titulo{
     color: white !important;
@@ -13,16 +14,15 @@
 }
 .botao1{
     border-color: white !important;
-    background-color: #3F51B5 ;
-    padding: 1% !important;
+    background-color: black !important;
     color: white !important;
 }
 .botao2{
     border-color: white !important;
-    background-color: #3F51B5 ;
-    padding: 1% !important;
+    background-color: black !important;
     color: white !important;
 }
 .postagens{
-    background-color: white;
+    background: rgb(167,106,8) !important;
+    background: linear-gradient(90deg, rgba(167,106,8,1) 19%, rgba(0,0,0,1) 63%) !important;
 }

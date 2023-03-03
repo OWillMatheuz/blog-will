@@ -10,7 +10,7 @@ function Home(){
  <Grid container direction="row" justifyContent="center" alignItems="center" className='caixa'>
                 <Grid alignItems="center" item xs={6}>
                     <Box paddingX={20} >
-                        <Typography variant="h3" gutterBottom color="textPrimary" component="h3" align="center" className='titulo' >Eu sou o Will!</Typography>
+                        <Typography variant="h3" gutterBottom color="textPrimary" component="h3" align="center" className='titulo' >Eu sou Willian Matheus!</Typography>
                         <Typography variant="h5" gutterBottom color="textPrimary" component="h5" align="center" className='titulo'>Bora bater um papo? </Typography>
                     </Box>
                     <Box display="flex" justifyContent="center">
@@ -22,7 +22,7 @@ function Home(){
                     </Box>
                 </Grid>
                 <Grid item xs={6} >
-                    <img src="https://github.com/OWillMatheuz.png" alt="" width="300px" height="300px"/>
+                    <img src="https://github.com/OWillMatheuz.png" alt="" width="200px" height="200px"/>
                 </Grid>
                 <Grid xs={12} className='postagens'>
                 </Grid>
