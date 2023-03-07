@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState ,useEffect} from 'react';
+import React, {useState, useEffect, ChangeEvent} from 'react';
 import { Grid,Typography, TextField, Button } from '@material-ui/core';
 import {Box} from '@mui/material';
 import { Link, useNavigate} from 'react-router-dom';
@@ -11,7 +11,7 @@ const estilo = {
     backgroundImage: 'linear-gradient(90deg, rgba(167,106,8,1) 29%, rgba(0,0,0,1) 83%)'
 }
 function Login() {
-    let history = useNavigate();
+    let navigate = useNavigate();
     const [token, setToken]= useLocalStorage('token');
 
 
@@ -33,7 +33,7 @@ function Login() {
 
     useEffect(()=>{
         if(token != ''){
-            history('/home')
+            navigate('/home')
         }
     }, [token])
 

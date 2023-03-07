@@ -1,9 +1,9 @@
 .cursor{
-    cursor: pointer !important;
-    color: black !important;
+    cursor: pointer ;
+    color: white;
 }
 
-.text-decorator-none{
-    text-decoration: none;
-}
 
+.text-decoration{
+    text-decoration: none !important;
+}

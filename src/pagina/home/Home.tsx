@@ -2,6 +2,7 @@ import { Button, Grid, Typography } from '@material-ui/core';
 import { Box } from '@mui/material';
 import TextsmsIcon from '@material-ui/icons/Textsms';
 import React from 'react';
+import TabPostagem from '../../components/postagens/tabpostagem/TabPostagem'
 import './Home.css';
 
 function Home(){
@@ -25,6 +26,7 @@ function Home(){
                     <img src="https://github.com/OWillMatheuz.png" alt="" width="200px" height="200px"/>
                 </Grid>
                 <Grid xs={12} className='postagens'>
+                    <TabPostagem />
                 </Grid>
             </Grid>
         </>
