@@ -14,7 +14,7 @@ function ListaTema() {
   let navigate = useNavigate();
 
   useEffect(()=>{
-    if(token == ''){
+    if(token == ""){
       alert("Você precisa estar logado")
       navigate("/login")
     }
@@ -22,9 +22,9 @@ function ListaTema() {
 
 
   async function getTema(){
-    await busca("/tema", setTemas, {
+    await busca("/temas", setTemas, {
       headers: {
-        'Authorization': token
+        Authorization: token
       }
     })
   }

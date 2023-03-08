@@ -8,6 +8,11 @@ import Cadastro from './pagina/cadastro/Cadastro';
 import ListaTema from './components/temas/listatema/ListaTema';
 import ListaPostagem from './components/postagens/listapostagem/ListaPostagem';
 import './App.css';
+import CadastroTema from './components/temas/cadastroTema/CadastroTema';
+import DeletarPostagem from './components/postagens/deletarPostagem/DeletarPostagem';
+import DeletarTema from './components/temas/deletarTema/DeletarTema';
+import CadastroPost from './components/postagens/cadastroPost/CadastroPost';
+import ModalPostagem from './components/postagens/modalPostagem/ModalPostagem';
 
 
 function App() {
@@ -16,13 +21,20 @@ function App() {
     <Router>
       <Navbar />
         <div style={{ minHeight: '100vh' }}>
-          <Routes> // Antigo Switch
+          <Routes> 
             <Route path="/" element={<Login />} />
             <Route path="/login" element={<Login />} />
             <Route path="/home" element={<Home />} />
             <Route path="/cadastro" element={<Cadastro />} />
             <Route path="/tema" element={<ListaTema />} />
-            <Route path="/posts" element={<ListaPostagem />} />
+            <Route path="/postagens" element={<ListaPostagem />} />
+            <Route path="/formularioPostagem" element={<CadastroPost />} />
+            <Route path="/formularioPostagem/:id" element={<CadastroPost />} />
+            <Route path="/formularioTema" element={<CadastroTema />} />
+            <Route path="/formularioTema/:id" element={<CadastroTema />} />
+            <Route path="/deletarPostagem" element={<DeletarPostagem />} />
+            <Route path="/deletarTema" element={<DeletarTema />} />
+            <Route path="/modalPostagem" element={<ModalPostagem />} />
           </Routes>
         </div>
           <Footer />
