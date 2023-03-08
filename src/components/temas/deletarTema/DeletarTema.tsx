@@ -36,7 +36,7 @@ function DeletarTema() {
           })
         }
          function sim() {
-          navigate('/temas')
+          navigate('/tema')
             deleteId(`/temas/${id}`, {
               headers: {
                 'Authorization': token
@@ -46,7 +46,7 @@ function DeletarTema() {
           }
         
           function nao() {
-            navigate('/temas')
+            navigate('/tema')
           }
 
     

@@ -26,7 +26,9 @@ function Navbar(){
                 <Toolbar variant="dense">
                     <Box className='cursor'>
                         <Typography  variant="h5" color="inherit">
+                        <Link to='/home' className='text-decorator-none'>
                         <FaDev className="corlogo"/> <b className="corlogo">Java Full Stack Jr.</b>
+                        </Link>
                         </Typography>
                     </Box>
 

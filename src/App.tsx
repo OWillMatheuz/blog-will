@@ -32,9 +32,8 @@ function App() {
             <Route path="/formularioPostagem/:id" element={<CadastroPost />} />
             <Route path="/formularioTema" element={<CadastroTema />} />
             <Route path="/formularioTema/:id" element={<CadastroTema />} />
-            <Route path="/deletarPostagem" element={<DeletarPostagem />} />
-            <Route path="/deletarTema" element={<DeletarTema />} />
-            <Route path="/modalPostagem" element={<ModalPostagem />} />
+            <Route path="/deletarPostagem/:id" element={<DeletarPostagem />} />
+            <Route path="/deletarTema/:id" element={<DeletarTema />} />
           </Routes>
         </div>
           <Footer />

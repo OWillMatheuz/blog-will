@@ -52,6 +52,9 @@ function ListaPostagem() {
                   {posts.texto}
                 </Typography>
                 <Typography variant="body2" component="p">
+                  Postado em: {new Intl.DateTimeFormat('pt-BR',{dateStyle: 'long', timeStyle:'long'}).format(new Date(posts.data))}
+                </Typography>
+                <Typography variant="body2" component="p">
                   {posts.tema?.descricao}
                 </Typography>
               </CardContent>
