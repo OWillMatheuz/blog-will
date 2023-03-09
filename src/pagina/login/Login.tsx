@@ -6,15 +6,13 @@ import UsuarioLogin from '../models/UsuarioLogin';
 import useLocalStorage from 'react-use-localstorage';
 import { login } from '../../services/Service';
 import './Login.css';
-const estilo = {
-    background: 'rgb(167,106,8)',
-    backgroundImage: 'linear-gradient(90deg, rgba(167,106,8,1) 29%, rgba(0,0,0,1) 83%)'
-}
+import { useDispatch } from 'react-redux';
+import { addToken } from '../../store/tokens/actions';
+
 function Login() {
     let navigate = useNavigate();
-    const [token, setToken]= useLocalStorage('token');
-
-
+    const dispatch = useDispatch();
+    const [token, setToken]= useState('');
     const [userLogin, setUserLogin] = useState<UsuarioLogin>(
         {
             id: 0,
@@ -33,6 +31,7 @@ function Login() {
 
     useEffect(()=>{
         if(token != ''){
+            dispatch(addToken(token))
             navigate('/home')
         }
     }, [token])
@@ -50,7 +49,7 @@ function Login() {
 
     
     return (
-        <Grid style={estilo} container direction='row' justifyContent='center' alignItems='center'>
+        <Grid className="login" container direction='row' justifyContent='center' alignItems='center'>
             <Grid alignItems='center' xs={6}>
                 <Box paddingX={20}>
                 <form onSubmit={onSubmit}>
@@ -65,15 +64,15 @@ function Login() {
                 </form>
                     <Box display='flex' justifyContent='center' marginTop={2}>
                         <Box marginRight={1}>
-                            <Typography variant='subtitle1' gutterBottom align='center'>Não tem uma conta?</Typography>
+                            <Typography className="textoscomponents" variant='subtitle1' gutterBottom align='center'>Não tem uma conta?</Typography>
                         </Box>
-                        <Link to='/cadastro' className='text-decorator-none'>
-                            <Typography variant='subtitle1' gutterBottom align='center' className='textoscomponents'>Cadastre-se</Typography>
+                        <Link to='/cadastro' className="text-decorator-none">
+                            <Typography variant='subtitle1' gutterBottom align='center' className="cad">Cadastre-se</Typography>
                         </Link>    
                     </Box>
                 </Box>
                 <Box marginRight={1}>
-                            <Typography variant='subtitle2' gutterBottom align='center'>Seus dados são criptografados!</Typography>
+                            <Typography className="textoscomponents" variant='subtitle2' gutterBottom align='center'>Seus dados são criptografados!</Typography>
                         </Box>
             </Grid>
             <Grid xs={4} className='imagem'>

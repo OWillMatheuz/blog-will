@@ -4,14 +4,21 @@ import Postagem from '../../../pagina/models/Postagem';
 import { busca } from '../../../services/Service'
 import {Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
 import {Box} from '@mui/material';
-import useLocalStorage from 'react-use-localstorage';
 import { useNavigate } from 'react-router-dom'
 import './ListaPostagem.css';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/tokensReducer';
+
+
+
+
 
 function ListaPostagem() {
   const [posts, setPosts] = useState<Postagem[]>([])
-  const [token, setToken] = useLocalStorage('token');
   let navigate = useNavigate();
+  const token = useSelector<TokenState, TokenState["tokens"]>(
+    (state) => state.tokens
+  );
 
   useEffect(() => {
     if (token == "") {
@@ -38,10 +45,11 @@ function ListaPostagem() {
   return (
     <>
       {
+        
         posts.map(posts => (
-          <Box m={2} >
-            <Card variant="outlined">
-              <CardContent>
+          <Box  m={2} >
+            <Card className="card" variant="outlined">
+              <CardContent >
                 <Typography color="textSecondary" gutterBottom>
                   Postagens
                 </Typography>
@@ -49,13 +57,13 @@ function ListaPostagem() {
                   {posts.titulo}
                 </Typography>
                 <Typography variant="body2" component="p">
-                  {posts.texto}
+                  Mensagem: {posts.texto}
                 </Typography>
                 <Typography variant="body2" component="p">
-                  Postado em: {new Intl.DateTimeFormat('pt-BR',{dateStyle: 'long', timeStyle:'long'}).format(new Date(posts.data))}
+                  Postado em: {new Date(Date.parse(posts.date)).toLocaleDateString()} <br />
                 </Typography>
                 <Typography variant="body2" component="p">
-                  {posts.tema?.descricao}
+                  Tema: {posts.tema?.descricao}
                 </Typography>
               </CardContent>
               <CardActions>
@@ -63,14 +71,14 @@ function ListaPostagem() {
 
                   <Link to={`/formularioPostagem/${posts.id}`} className="text-decorator-none" >
                     <Box mx={1}>
-                      <Button variant="contained" className="marginLeft" size='small' color="primary" >
+                      <Button  variant="contained" className="btnatua" size='small' color="primary" >
                         atualizar
                       </Button>
                     </Box>
                   </Link>
                   <Link to={`/deletarPostagem/${posts.id}`} className="text-decorator-none">
                     <Box mx={1}>
-                      <Button variant="contained" size='small' color="secondary">
+                      <Button className="btncancelar" variant="contained" size='small' color="secondary">
                         deletar
                       </Button>
                     </Box>

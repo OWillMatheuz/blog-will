@@ -8,10 +8,7 @@ import { Link } from 'react-router-dom';
 import './Cadastro.css';
 
 
-const estilo = {
-    background: 'rgb(167,106,8)',
     
-}
 function Cadastro() {
     
     let navigate = useNavigate();
@@ -77,7 +74,7 @@ function Cadastro() {
 
     
     return (
-        <Grid style={estilo} container direction='row' justifyContent='center' alignItems='center'>
+        <Grid className="cadastro1" container direction='row' justifyContent='center' alignItems='center'>
             <Grid item xs={6} className='imagem2'></Grid>
             <Grid item xs={6} alignItems='center'>
                 <Box paddingX={10}>

@@ -1,3 +1,13 @@
 .text-decorator-none{
     text-decoration: none;
 }
+.btnatua{
+    background-color: hsl(126, 100%, 36%) !important;
+    color: white;
+}
+.btncancelar{
+    background-color: #A40606 !important;
+}
+.card{
+    background: #88cafc; background: -moz-linear-gradient(to bottom,  #88cafc 0%,#e0e9ee 0%,#cdd7dd 100%); background: -webkit-linear-gradient(to bottom,  #88cafc 0%,#e0e9ee 0%,#cdd7dd 100%); background: linear-gradient(to bottom,  #88cafc 0%,#e0e9ee 0%,#cdd7dd 100%);
+}

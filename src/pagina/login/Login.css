@@ -1,6 +1,7 @@
 .textoscomponents{
     font-weight: bold !important;
     text-decoration: none !important;
+    color: white !important;
 
 }
 .imagem{
@@ -16,8 +17,14 @@
 
 .text-decorator-none{
     text-decoration: none !important;
-    color: black !important;
+    color: white !important;
 }
 .botaologar{
-    background-color: black !important;
+    background: #323232; background: -moz-linear-gradient(-146deg,  #323232 0%,#4b4b4b 48%,#1c1c1c 100%); background: -webkit-linear-gradient(-146deg,  #323232 0%,#4b4b4b 48%,#1c1c1c 100%); background: linear-gradient(-146deg,  #323232 0%,#4b4b4b 48%,#1c1c1c 100%);
+}
+.login{
+    background: #323232; background: -moz-linear-gradient(-146deg,  #323232 0%,#4b4b4b 48%,#1c1c1c 100%); background: -webkit-linear-gradient(-146deg,  #323232 0%,#4b4b4b 48%,#1c1c1c 100%); background: linear-gradient(-146deg,  #323232 0%,#4b4b4b 48%,#1c1c1c 100%);
+}
+.cad{
+    color: green !important;
 }

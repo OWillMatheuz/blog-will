@@ -5,8 +5,7 @@
     height: 30px;
 }
 .caixa{
-    background: rgb(167,106,8);
-    background: linear-gradient(90deg, rgba(167,106,8,1) 29%, rgba(0,0,0,1) 83%);
+    background: #323232; background: -moz-linear-gradient(-146deg,  #323232 0%,#4b4b4b 48%,#1c1c1c 100%); background: -webkit-linear-gradient(-146deg,  #323232 0%,#4b4b4b 48%,#1c1c1c 100%); background: linear-gradient(-146deg,  #323232 0%,#4b4b4b 48%,#1c1c1c 100%);
 }
 .titulo{
     color: white !important;
@@ -23,6 +22,5 @@
     color: white !important;
 }
 .postagens{
-    background: rgb(167,106,8) !important;
-    background: linear-gradient(90deg, rgba(167,106,8,1) 19%) !important;
+    background: #323232; background: -moz-linear-gradient(-146deg,  #323232 0%,#4b4b4b 48%,#1c1c1c 100%); background: -webkit-linear-gradient(-146deg,  #323232 0%,#4b4b4b 48%,#1c1c1c 100%); background: linear-gradient(-146deg,  #323232 0%,#4b4b4b 48%,#1c1c1c 100%);
 }

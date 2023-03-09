@@ -6,28 +6,31 @@ import { Link } from "react-router-dom";
 import {useNavigate} from 'react-router-dom'
 import useLocalStorage from "react-use-localstorage";
 import './Navbar.css';
+import { useDispatch, useSelector } from "react-redux";
+import { TokenState } from "../../../store/tokens/tokensReducer";
+import { addToken } from "../../../store/tokens/actions";
 
 function Navbar(){
-    const estilo = {
-        background: 'rgb(167,106,8)',
-        backgroundImage: 'linear-gradient(90deg, rgba(167,106,8,1) 29%, rgba(0,0,0,1) 83%)'
-    };
+    const token = useSelector<TokenState, TokenState["tokens"]>(
+        (state) => state.tokens
+      );
 
-    const [token, setToken] = useLocalStorage('token');
     let navigate = useNavigate();
+    const dispatch = useDispatch();
+
     function goLogout(){
-        setToken('')
+        dispatch(addToken(''));
         alert("Usuário deslogado")
         navigate('/login')
     }
-    return (
-        <>
-          <AppBar  position="static" style={estilo}>
+    var navbarComponent;
+    if(token != ""){
+        navbarComponent = <AppBar  position="static" className="backcolor">
                 <Toolbar variant="dense">
                     <Box className='cursor'>
                         <Typography  variant="h5" color="inherit">
                         <Link to='/home' className='text-decorator-none'>
-                        <FaDev className="corlogo"/> <b className="corlogo">Java Full Stack Jr.</b>
+                        <FaDev className="dev"/> <b className="dev">Java Full Stack Jr.</b>
                         </Link>
                         </Typography>
                     </Box>
@@ -79,7 +82,12 @@ function Navbar(){
 
                 </Toolbar>
             </AppBar>
-        </>
+    }
+    return(
+        <>
+        {navbarComponent}
+    </>
+
     )
 }
 export default Navbar;
