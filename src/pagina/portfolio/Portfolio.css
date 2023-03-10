@@ -1,0 +1,14 @@
+.portcolor{
+    color: black !important;
+}
+.text1color{
+    color: black !important;
+}
+.imagemport{
+    Background-repeat: no-repeat;
+    display: flex;
+    width: 150vh;
+    min-height: 1vh;
+    background-size: cover;
+    background-position: center;
+}

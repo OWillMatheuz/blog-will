@@ -2,12 +2,13 @@ import React, {useState, useEffect, ChangeEvent} from 'react';
 import { Grid,Typography, TextField, Button } from '@material-ui/core';
 import {Box} from '@mui/material';
 import { Link, useNavigate} from 'react-router-dom';
-import UsuarioLogin from '../models/UsuarioLogin';
-import useLocalStorage from 'react-use-localstorage';
+
 import { login } from '../../services/Service';
 import './Login.css';
 import { useDispatch } from 'react-redux';
-import { addToken } from '../../store/tokens/actions';
+import { addId, addToken } from '../../store/tokens/actions';
+import { toast } from 'react-toastify';
+import UsuarioLogin from '../models/UsuarioLogin';
 
 function Login() {
     let navigate = useNavigate();
@@ -16,11 +17,34 @@ function Login() {
     const [userLogin, setUserLogin] = useState<UsuarioLogin>(
         {
             id: 0,
+            nome: '',
             usuario: '',
             senha: '',
+            foto: '',
             token: ''
         }
-    )
+    );
+    const [respUserLogin, setRespUserLogin] = useState<UsuarioLogin>(
+        {
+            id: 0,
+            nome:'',
+            usuario: '',
+            senha: '',
+            foto: '',
+            token: ''
+        }
+    );
+    const [loginForm, setLoginForm] = useState(true)
+
+    const padraoEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+    useEffect(() => {
+      if(userLogin.usuario.match(padraoEmail) && userLogin.senha.length >= 8) {
+        setLoginForm(false)
+      } else {
+        setLoginForm(true)
+      }
+    }, [userLogin])
+    
     function updatedModel(e: ChangeEvent<HTMLInputElement>) {
 
         setUserLogin({
@@ -29,23 +53,48 @@ function Login() {
         })
     }
 
-    useEffect(()=>{
-        if(token != ''){
-            dispatch(addToken(token))
-            navigate('/home')
-        }
-    }, [token])
-
     async function onSubmit (e: ChangeEvent<HTMLFormElement>){
         e.preventDefault();
         try{
-           await login(`/usuarios/logar`, userLogin,setToken)
+           await login(`/usuarios/logar`, userLogin, setRespUserLogin)
 
-            alert ('Usuário logado com sucesso!');
+           toast.success('Usuário logado com sucesso!', {
+            position: "top-right",
+            autoClose: 4000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+            });
         }catch(error){
-            alert ('Dados do usuário inconsistentes. Erro ao logar!');
+            toast.error('Dados do usuário inconsistentes. Erro ao logar!', {
+                position: "top-right",
+                autoClose: 4000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                });
         }
     }
+    useEffect(() => {
+        if (token !== '') {
+          dispatch(addToken(token))
+         navigate('/home');
+        }
+      }, [token]);
+
+      useEffect(() => {
+        if (respUserLogin.token !== '') {
+          dispatch(addToken(respUserLogin.token))
+          dispatch(addId(respUserLogin.id.toString()))
+          navigate('/home')
+        }
+      }, [respUserLogin.token])
 
     
     return (
@@ -54,7 +103,7 @@ function Login() {
                 <Box paddingX={20}>
                 <form onSubmit={onSubmit}>
                         <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className='textoscomponents'>Entre e conheça a minha trajetória</Typography>
-                        <TextField value={userLogin.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='usuario' label='usuário' variant='outlined' name='usuario' margin='normal' fullWidth />
+                        <TextField value={userLogin.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='usuario' label='Usuário(e-mail)' variant='outlined' name='usuario' margin='normal' fullWidth />
                         <TextField value={userLogin.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='senha' label='senha' variant='outlined' name='senha' margin='normal' type='password'fullWidth />
                         <Box marginTop={2} textAlign='center'>
                                 <Button type='submit' variant='contained' color='primary' className='botaologar' >
@@ -82,3 +131,7 @@ function Login() {
     );
     }
 export default Login;
+function setLoginForm(arg0: boolean) {
+    throw new Error('Function not implemented.');
+}
+

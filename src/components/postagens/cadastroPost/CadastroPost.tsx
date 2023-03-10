@@ -3,11 +3,13 @@ import { Container, Typography, TextField, Button, Select, InputLabel, MenuItem,
 import './CadastroPost.css';
 import { useNavigate, useParams } from 'react-router-dom';
 import Tema from '../../../pagina/models/Tema';
-import useLocalStorage from 'react-use-localstorage';
 import Postagem from '../../../pagina/models/Postagem';
 import { busca, buscaId, post, put } from '../../../services/Service';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
+import { toast } from 'react-toastify';
+import Usuario from '../../../pagina/models/Usuario';
+
 
 function CadastroPost() {
     let navigate = useNavigate();
@@ -19,12 +21,33 @@ function CadastroPost() {
 
     useEffect(() => {
         if (token == "") {
-            alert("Você precisa estar logado")
+            toast.warn('Você precisa estar logado', {
+                position: "top-right",
+                autoClose: 4000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                });
             navigate("/login")
 
         }
     }, [token])
 
+    const userId = useSelector<TokenState, TokenState['id']>(
+        (state) => state.id
+    );
+
+    const [usuario, setUsuario] = useState<Usuario>({
+        id: + userId,
+        nome: '',
+        usuario: '',
+        senha: '',
+        foto: ''
+    })
+        
     const [tema, setTema] = useState<Tema>(
         {
             id: 0,
@@ -35,22 +58,24 @@ function CadastroPost() {
         titulo: '',
         texto: '',
         date: '',
-        tema: null
-    })
+        tema: null,
+        usuario: null
+    });
 
     useEffect(() => { 
         setPostagem({
             ...postagem,
-            tema: tema
+            tema: tema,
+            usuario: usuario
         })
-    }, [tema])
+    }, [tema]);
 
     useEffect(() => {
         getTemas()
         if (id !== undefined) {
             findByIdPostagem(id)
         }
-    }, [id])
+    }, [id]);
 
     async function getTemas() {
         await busca("/temas", setTemas, {
@@ -59,6 +84,7 @@ function CadastroPost() {
             }
         })
     }
+    
 
     async function findByIdPostagem(id: string) {
         await buscaId(`/postagens/${id}`, setPostagem, {
@@ -87,14 +113,32 @@ function CadastroPost() {
                     'Authorization': token
                 }
             })
-            alert('Postagem atualizada com sucesso');
+            toast.success('Postagem atualizada com sucesso!', {
+                position: "top-right",
+                autoClose: 4000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                });
         } else {
             post(`/postagens`, postagem, setPostagem, {
                 headers: {
                     'Authorization': token
                 }
             })
-            alert('Postagem cadastrada com sucesso');
+            toast.success('Postagem cadastrada com sucesso!', {
+                position: "top-right",
+                autoClose: 4000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                });
         }
         back()
 
