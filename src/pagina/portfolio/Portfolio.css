@@ -4,7 +4,23 @@
 .text1color{
     color: black !important;
 }
-.imagemport{
+.imagemport1{
+    Background-repeat: no-repeat;
+    display: flex;
+    width: 50vh;
+    min-height: 1vh;
+    background-size: cover;
+    background-position: center;
+}
+.imagemport2{
+    Background-repeat: no-repeat;
+    display: flex;
+    width: 150vh;
+    min-height: 1vh;
+    background-size: cover;
+    background-position: center;
+}
+.imagemport3{
     Background-repeat: no-repeat;
     display: flex;
     width: 150vh;

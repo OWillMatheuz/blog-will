@@ -60,9 +60,6 @@ function ListaPostagem() {
           <Box  m={2} >
             <Card className="card" variant="outlined">
               <CardContent >
-              <Typography variant="body2" component="p">
-                Postado por: {posts.usuario?.nome}
-              </Typography>
                 <Typography color="textSecondary" gutterBottom>
                   Postagens
                 </Typography>
@@ -78,6 +75,9 @@ function ListaPostagem() {
                 <Typography variant="body2" component="p">
                   Tema: {posts.tema?.descricao}
                 </Typography>
+                <Typography variant="body2" component="p">
+                Postado por: {posts.usuario?.nome}
+              </Typography>
               </CardContent>
               <CardActions>
                 <Box display="flex" justifyContent="center" mb={1.5}>

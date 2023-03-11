@@ -2,15 +2,18 @@ import React, { useState, useEffect, ChangeEvent} from 'react';
 import { useNavigate } from 'react-router-dom';
 import Usuario from '../models/Usuario';
 import { cadastroUsuario } from '../../services/Service';
-import { Grid, Typography, Button, TextField } from '@material-ui/core';
+import { Grid, Typography, Button, TextField, InputAdornment, IconButton } from '@material-ui/core';
 import {Box} from '@mui/material';
 import { Link } from 'react-router-dom';
 import './Cadastro.css';
 import { toast } from 'react-toastify';
+import { Visibility, VisibilityOff } from '@material-ui/icons';
 
 
     
 function Cadastro() {
+    const [showPassword, setShowPassword] = useState(false);
+    const handleClickShowPassword = () => setShowPassword(!showPassword);
     
     let navigate = useNavigate();
     const [confirmarSenha,setConfirmarSenha] = useState<String>("")
@@ -123,10 +126,12 @@ function Cadastro() {
                         <TextField value={user.usuario}
                          onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
                          id='usuario' 
-                         label='Usuário(E-mail)*' 
+                         label='Usuário(E-mail)' 
                          variant='outlined' 
                          name='usuario' 
-                         margin='normal'fullWidth />
+                         margin='normal'fullWidth type='email'
+                         inputProps={{ pattern: "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" }}
+                         required/>
                         <TextField value={user.senha} 
                         onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
                         id='senha' 
@@ -134,7 +139,18 @@ function Cadastro() {
                         variant='outlined' 
                         name='senha' 
                         margin='normal' 
-                        type='password' fullWidth />
+                        fullWidth 
+                        type={showPassword ? 'text' : 'password'}
+                         InputProps={{
+                           endAdornment: (
+                             <InputAdornment position="end">
+                               <IconButton onClick={handleClickShowPassword}>
+                                 {showPassword ? <Visibility /> : <VisibilityOff />}
+                               </IconButton>
+                             </InputAdornment>
+                           )
+                         }}
+                       />
                         <TextField value={confirmarSenha} 
                         onChange={(e: ChangeEvent<HTMLInputElement>) => confirmarSenhaHandle(e)}
                         id='confirmarSenha' 
@@ -142,7 +158,18 @@ function Cadastro() {
                         variant='outlined' 
                         name='confirmarSenha' 
                         margin='normal' 
-                        type='password' fullWidth />
+                         fullWidth 
+                        type={showPassword ? 'text' : 'password'}
+                         InputProps={{
+                           endAdornment: (
+                             <InputAdornment position="end">
+                               <IconButton onClick={handleClickShowPassword}>
+                                 {showPassword ? <Visibility /> : <VisibilityOff />}
+                               </IconButton>
+                             </InputAdornment>
+                           )
+                         }}
+                       />
                         <TextField value={user.foto} 
                         onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
                         id='foto' 

@@ -2,15 +2,19 @@ import React, {useState, useEffect, ChangeEvent} from 'react';
 import { Grid,Typography, TextField, Button } from '@material-ui/core';
 import {Box} from '@mui/material';
 import { Link, useNavigate} from 'react-router-dom';
-
 import { login } from '../../services/Service';
 import './Login.css';
 import { useDispatch } from 'react-redux';
 import { addId, addToken } from '../../store/tokens/actions';
 import { toast } from 'react-toastify';
 import UsuarioLogin from '../models/UsuarioLogin';
+import {IconButton, InputAdornment } from '@material-ui/core';
+import { Visibility, VisibilityOff } from '@material-ui/icons';
 
 function Login() {
+    const [showPassword, setShowPassword] = useState(false);
+    const handleClickShowPassword = () => setShowPassword(!showPassword);
+
     let navigate = useNavigate();
     const dispatch = useDispatch();
     const [token, setToken]= useState('');
@@ -103,8 +107,28 @@ function Login() {
                 <Box paddingX={20}>
                 <form onSubmit={onSubmit}>
                         <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className='textoscomponents'>Entre e conheça a minha trajetória</Typography>
-                        <TextField value={userLogin.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='usuario' label='Usuário(e-mail)' variant='outlined' name='usuario' margin='normal' fullWidth />
-                        <TextField value={userLogin.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='senha' label='senha' variant='outlined' name='senha' margin='normal' type='password'fullWidth />
+                        <TextField value={userLogin.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='usuario' label='Usuário(e-mail)' variant='outlined' name='usuario' margin='normal' fullWidth type='text'
+                         inputProps={{ pattern: "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" }}
+                         required /> 
+                         
+                        <TextField value={userLogin.senha} 
+                         onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} 
+                         id='senha' 
+                         label='senha' 
+                         variant='outlined' 
+                         name='senha' 
+                         margin='normal' fullWidth 
+                         type={showPassword ? 'text' : 'password'}
+                         InputProps={{
+                           endAdornment: (
+                             <InputAdornment position="end">
+                               <IconButton onClick={handleClickShowPassword}>
+                                 {showPassword ? <Visibility /> : <VisibilityOff />}
+                               </IconButton>
+                             </InputAdornment>
+                           )
+                         }}
+                       />
                         <Box marginTop={2} textAlign='center'>
                                 <Button type='submit' variant='contained' color='primary' className='botaologar' >
                                     Logar
