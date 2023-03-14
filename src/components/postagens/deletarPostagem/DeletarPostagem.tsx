@@ -4,7 +4,6 @@ import {Box} from '@mui/material';
 import './DeletarPostagem.css';
 import Postagem from '../../../pagina/models/Postagem';
 import { buscaId, deleteId } from '../../../services/Service';
-import useLocalStorage from 'react-use-localstorage';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
