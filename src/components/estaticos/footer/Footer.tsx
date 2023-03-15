@@ -18,14 +18,14 @@ function Footer(){
 
       var footerComponent;
       if(token != ""){
-       footerComponent = <Grid container  direction="row" justifyContent="center" alignItems="center">
-                <Grid alignItems="center" item xs={12}>
-                    <Box className='box1'>
-                        <Box paddingTop={1} display="flex" alignItems="center" justifyContent="center">
+       footerComponent = <Grid className="box1" container  direction="row" justifyContent="center" alignItems="center">
+                <Grid className="box1" alignItems="center" item xs={12}>
+                    <Box className="box1">
+                        <Box className="box1" paddingTop={1} display="flex" alignItems="center" justifyContent="center">
                             <Typography variant="h5" align="center" gutterBottom className='textos'>Siga-me os bons: </Typography>
                         </Box>
-                        <Box display="flex" alignItems="center" justifyContent="center">
-                        <a href="https:/http://github.com/OWillMatheuz" target="_blank">
+                        <Box className="box1" display="flex" alignItems="center" justifyContent="center">
+                        <a  href="https:/http://github.com/OWillMatheuz" target="_blank">
                                 <GithubIcon className='redes'/>
                             </a>
                             <a href="https://www.facebook.com/willmatheuz" target="_blank">
@@ -39,7 +39,7 @@ function Footer(){
                             </a>
                         </Box>
                     </Box>
-                    <Box className='box2' >
+                    <Box className="box2" >
                         <Box paddingTop={1}>
                             <Typography variant="subtitle2" align="center" gutterBottom className='textos' >© 2023 Copyright:</Typography>
                         </Box>

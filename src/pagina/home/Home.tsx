@@ -37,14 +37,14 @@ function Home(){
   
     return (
         <>
- <Grid  container direction="row" justifyContent="center" alignItems="center" className='caixa'>
+ <Grid container direction="row" justifyContent="center" alignItems="center" className='caixa' >
                 <Grid alignItems="center" item xs={6}>
-                    <Box paddingX={40} >
-                        <Typography variant="h3" gutterBottom color="textPrimary" component="h3" align="center" className='titulo' >Eu sou Willian Matheus!</Typography>
-                        <Typography variant="h5" gutterBottom color="textPrimary" component="h5" align="center" className='titulo'>Bora bater um papo? </Typography>
+                    <Box paddingX={2} >
+                        <Typography variant="h4" gutterBottom color="textPrimary" component="h4" align="center" className='titulo' >Eu sou Willian Matheus!</Typography>
+                        <Typography variant="h6" gutterBottom color="textPrimary" component="h6" align="center" className='titulo2'>Bora bater um papo? </Typography>
                     </Box>
-                    <Box display="flex" justifyContent="center">
-                        <Box marginRight={1}>
+                    <Box display="flex" justifyContent="center" className="text-decorator-none" >
+                        <Box marginRight={2} paddingX={0} >
                         <ModalPostagem />
                         </Box>
                         <Link to="/postagens" className="text-decorator-none">
@@ -52,7 +52,7 @@ function Home(){
                         </Link>
                     </Box>
                 </Grid>
-                <Grid item xs={6} >
+                <Grid item xs={4} >
                     <img src="https://github.com/OWillMatheuz.png" alt="" width="200px" height="200px"/>
                 </Grid>
                 <Grid  xs={12} className='postagens'>

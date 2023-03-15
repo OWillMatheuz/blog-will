@@ -1,15 +1,29 @@
+
 .cursor{
     cursor: pointer ;
     color: white;
+    font-size: 1rem;
+    display: flex !important;
 }
 
 
 .text-decoration{
     text-decoration: none !important;
+    font-size: 1rem !important;
 }
 .backcolor{
-    background: #323232; background: -moz-linear-gradient(-146deg,  #323232 0%,#4b4b4b 48%,#1c1c1c 100%); background: -webkit-linear-gradient(-146deg,  #323232 0%,#4b4b4b 48%,#1c1c1c 100%); background: linear-gradient(-146deg,  #323232 0%,#4b4b4b 48%,#1c1c1c 100%);
+    background: #323232; background: -moz-linear-gradient(-146deg,  #323232 0%,#4b4b4b 48%,#1c1c1c 100%) !important; background: -webkit-linear-gradient(-146deg,  #323232 0%,#4b4b4b 48%,#1c1c1c 100%) !important; background: linear-gradient(-146deg,  #323232 0%,#4b4b4b 48%,#1c1c1c 100%);
+    font-size: 1rem;
+    display: flex !important;
 }
 .dev{
     color: white;
+    font-size: 1rem;
+}
+
+.navbar1{
+    background: #323232; background: -moz-linear-gradient(-146deg,  #323232 0%,#4b4b4b 48%,#1c1c1c 100%); background: -webkit-linear-gradient(-146deg,  #323232 0%,#4b4b4b 48%,#1c1c1c 100%); background: linear-gradient(-146deg,  #323232 0%,#4b4b4b 48%,#1c1c1c 100%) !important;
+    height: 50% !important;
+    color:rgb(0, 0, 0) !important;
+    display: flex !important;
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import { AppBar, Toolbar, Typography} from '@material-ui/core';
+import { AppBar, Grid, Toolbar, Typography} from '@material-ui/core';
 import { Box } from '@mui/material';
 import { FaDev } from 'react-icons/fa';
 import { Link } from "react-router-dom";
@@ -36,63 +36,63 @@ function Navbar(){
     }
     var navbarComponent;
     if(token != ""){
-        navbarComponent = <AppBar  position="static" className="backcolor">
+        navbarComponent = <AppBar  position="sticky" className="backcolor">
+            <Grid className="navbar1" container  direction="row" justifyContent="center" alignItems="center">
+
                 <Toolbar variant="dense">
-                    <Box className='cursor'>
-                        <Typography  variant="h5" color="inherit">
-                        <Link to='/home' className='text-decorator-none'>
-                        <FaDev className="dev"/> <b className="dev">Java Full Stack Jr.</b>
+                    <Box className='cursor' >
+                        <Typography variant="h5" color="inherit">
+                        <Link to='/home' className="text-decorator-none" >
+                        <FaDev  className="dev" /> <b className="dev">Java Full Stack Jr.</b>
                         </Link>
-                        </Typography>
+                        </Typography >
                     </Box>
 
                     <Box display="flex" justifyContent="start">
                         <Link to="/home" className="text-decoration">
-                        <Box mx={1} className='cursor'>
-                            <Typography variant="h6" color="inherit">
-                                 | Home |
+                            <Box mx={1} className='cursor'>
+                            <Typography variant="h6" color="inherit" className="text-decoration">
+                                 Home
                             </Typography>
-                        </Box>
+                            </Box>
                         </Link>
                         <Link className="text-decoration" to="/postagens">
-                        <Box mx={1} className='cursor'>
+                            <Box mx={1} className='cursor'>
                             <Typography variant="h6" color="inherit" className="text-decoration" >
-                               | Postagens |
+                               Postagens
                             </Typography>
-                        </Box>
+                            </Box>
                         </Link>
                         <Link to="/tema" className="text-decoration">
-                        <Box mx={1} className='cursor'>
-                            <Typography variant="h6" color="inherit">
-                               | Tema |
+                            <Box mx={1} className='cursor'>
+                            <Typography variant="h6" color="inherit" className="text-decoration">
+                               Tema
                             </Typography>
-                        </Box>
+                            </Box>
                         </Link>
                         <Link to="/formularioTema" className="text-decoration">
-                        <Box mx={1} className='cursor'>
-                            <Typography variant="h6" color="inherit">
-                               | Cadast. Temas |
+                            <Box mx={1} className='cursor'>
+                            <Typography variant="h6" color="inherit" className="text-decoration">
+                               Cadast. Temas
                             </Typography>
-                        </Box>
+                            </Box>
                         </Link>
                         <Link to="/portfolio" className="text-decoration">
-                        <Box mx={1} className='cursor'>
-                            <Typography variant="h6" color="inherit">
-                               | Portfólio |
+                            <Box mx={1} className='cursor'>
+                            <Typography variant="h6" color="inherit" className="text-decoration">
+                               Portfólio
                             </Typography>
-                        </Box>
+                            </Box>
                         </Link>
-
-        
                             <Box mx={1} className='cursor' onClick={goLogout}>
-                                <Typography variant="h6" color="inherit">
+                                <Typography variant="h6" color="inherit" className="text-decoration">
                                 <b className="text-decoraion">Sair</b>
                                 </Typography>
                             </Box>
-                        
                     </Box>
 
                 </Toolbar>
+            </Grid>
             </AppBar>
     }
     return(

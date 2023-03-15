@@ -58,11 +58,12 @@ function ModalPostagem () {
 
   return (
     <div>
-      <Button
+      <Box >
+      <Button 
         variant="outlined"
         className="btnModal"
         onClick={handleOpen}>DEIXE AQUI SEU POST</Button>
-        <Modal
+        <Modal 
         open={open}
         onClose={handleClose}
         aria-labelledby="simple-modal-title"
@@ -70,6 +71,7 @@ function ModalPostagem () {
         >
         {body}
         </Modal>
+        </Box>
     </div>
   );
 }

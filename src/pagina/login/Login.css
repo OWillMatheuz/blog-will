@@ -2,6 +2,7 @@
     font-weight: bold !important;
     text-decoration: none !important;
     color: white !important;
+    
 
 }
 .imagem{
@@ -24,7 +25,15 @@
 }
 .login{
     background: #323232; background: -moz-linear-gradient(-146deg,  #323232 0%,#4b4b4b 48%,#1c1c1c 100%); background: -webkit-linear-gradient(-146deg,  #323232 0%,#4b4b4b 48%,#1c1c1c 100%); background: linear-gradient(-146deg,  #323232 0%,#4b4b4b 48%,#1c1c1c 100%);
+    font-size: 1rem !important;
 }
 .cad{
     color: green !important;
+}
+.formu{
+    font-size: 1rem !important;
+}
+.campo1{
+    width: 20rem !important;
+    font-size: 1rem !important;
 }
