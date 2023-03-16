@@ -105,7 +105,7 @@ function Cadastro() {
 
     
     return (
-        <Grid className="cadastro1" container direction='row' justifyContent='center' alignItems='center'>
+        <Grid container spacing={2} justifyContent='center' alignItems='center'>
             <Grid item xs={6} className='imagem2'></Grid>
             <Grid item xs={6} alignItems='center'>
                 <Box paddingX={10}>
